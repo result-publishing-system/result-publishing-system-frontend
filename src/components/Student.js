@@ -1,68 +1,59 @@
 import React, { useState } from "react";
 
-var semesterObject = {
-    "1": {
-        "Chemistry": [],
-        "ED": [],
-        "English": []      
+let semesterNo = [1, 2, 3, 4, 5, 6, 7, 8]
+
+let students = {
+    "name": {
+        "firstName": "kunal",
+        "lastName": "rohitas"
     },
-    "2": {
-        "Physics": [],
-        "Mechanical": [],
-        "Civil": []      
-    },
-    "3": {
-        "Data Structure": [],
-        "CSS": [],
-        "JavaScript": []      
-    },
-    "4": {
-        "HTML": [],
-        "CSS": [],
-        "JavaScript": []      
-    },
-    "5": {
-        "HTML": [],
-        "CSS": [],
-        "JavaScript": []      
-    },
-    "6": {
-        "HTML": [],
-        "CSS": [],
-        "JavaScript": []      
-    },
-    "7": {
-        "HTML": [],
-        "CSS": [],
-        "JavaScript": []      
-    },
-    "8": {
-        "HTML": [],
-        "CSS": [],
-        "JavaScript": []      
-    }
-  }
-  window.onload = function() {
-    var semesterSel = document.getElementById("semester");
-    var subjectSel = document.getElementById("subject");
-    for (var x in semesterObject) {
-        semesterSel.options[semesterSel.options.length] = new Option(x, x);
-    }
-    semesterSel.onchange = function() {
-      
-      subjectSel.length = 1;
-      
-      for (var y in semesterObject[this.value]) {
-        subjectSel.options[subjectSel.options.length] = new Option(y, y);
-      }
-    }
-//     subjectSel.onchange = function() {
-//       
-//       //display correct values
-//       var z = semesterObject[subjectSel.value][this.value];
-      
-//     }
-  }
+    "_id": "62724c21969c032b054d9c8e",
+    "email": "kunal@email.com",
+    "enroll_no": "0901CS191052",
+    "phone_no": "1234567890",
+    "dob": "2022-05-04T09:49:21.239Z",
+    "branch": "Computer Science and Engineering",
+    "department": "CSE",
+    "subjects": [
+        {
+            "semester": 1,
+            "subjectName": "basic_computer_engineering",
+            "marks": 54
+        },
+        {
+            "semester": 1,
+            "subjectName": "basic_mechanical_engineering",
+            "marks": 32
+        },
+        {
+            "semester": 1,
+            "subjectName": "engineering_physics",
+            "marks": 88
+        },
+        {
+            "semester": 1,
+            "subjectName": "basic_civil_engineering",
+            "marks": 75
+        },
+        {
+            "semester": 1,
+            "subjectName": "EEES",
+            "marks": 92
+        },
+        {
+            "semester": 2,
+            "subjectName": "basic_civil_engineering",
+            "marks": 75
+        },
+        {
+            "semester": 2,
+            "subjectName": "EEES",
+            "marks": 92
+        }
+    ],
+    "__v": 0
+}
+
 
 const Student = ()=>{
     const [semester ,setSemester] = useState("");
@@ -74,7 +65,7 @@ const Student = ()=>{
         e.preventDefault();
         const newEntry =  {semester:semester , subject:subject , marks:marks};
         setAllEntry([...allEntry, newEntry]);
-        console.log(allEntry);
+        console.log(semester, subject, marks)
     }
 
     return(
@@ -82,20 +73,30 @@ const Student = ()=>{
         <div className="container ">
         <form action="" onSubmit={submitForm}>
           
-          <div class="text-center">
+          <div className="text-center">
               <h3>Enter Student Marks</h3>
           </div>
           <div className="mb-3">
            <label htmlFor="exampleInputSemester1" className="form-label">Semester</label>
-           <select name="semester" id="semester" className="form-control" >
-               <option class="text-dark" value="" selected="selected">Select Semester</option>
+           <select name="semester" id="semester" className="form-control" onChange={(e) => setSemester(e.target.value)} >
+            {
+                semesterNo.map((obj, idx) => {
+                    return(<option key={idx} value = {obj}>{obj}</option>)
+                })
+            }
            </select>
           </div>
          
          <div className="mb-3">
               <label htmlFor="exampleInputSubject1" className="form-label">Subject</label>
-             <select name="subject" id="subject" className="form-control">
-               <option class="text-dark" value="" selected="selected">Please select semester first</option>
+             <select name="subject" id="subject" className="form-control" onChange={(e) => setSubject(e.target.value)}>
+             {
+                students.subjects.map((obj, idx) => {
+                    if (obj.semester == semester) {
+                        return(<option key={idx} value = {obj.subjectName}>{obj.subjectName}</option>)
+                    }
+                })
+            }
              </select>
         </div>
         <div className="mb-3">

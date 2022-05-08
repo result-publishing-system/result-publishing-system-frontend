@@ -1,20 +1,17 @@
-// import React, { Component } from 'react'
-// import MockData from './components/MockData.json';
+import React from 'react'
+import Sidebar from './Sidebar'
+import Table from './Table'
 
-// class Dashboard extends Component{
-//     render(){
-//         return(
-//             <div>
-//                 <h1>Hello There</h1>
-//                 {
-//                     MockData.map((UserDetail,index)=> {
-//                         return <h1>{UserDetail.first_name}
-//                         </h1>
-//                     })
-//                 }
-//             </div>
-//         )
-//     }
-// }
-
-// export default Dashboard;
+export default function Dashboard() {
+  return (
+      <>
+        <div className="container-fluid" style={{backgroundColor: "white", height: "100vh"}}>
+        <Sidebar/>
+        <div className="container" style={{marginLeft: "240px"}}>
+            <Table/>
+        </div>
+        </div>
+      </>
+    
+  )
+}
