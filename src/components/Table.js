@@ -14,9 +14,7 @@ export default function Table() {
                 'auth-token': localStorage.token
             },
         })
-        // console.log(localStorage.token)
         const json = await response.json();
-        // console.log(json)
         setStudents(json)
     }
     return (
@@ -33,7 +31,6 @@ export default function Table() {
         </thead>
         <tbody>
             {students && students.map((element, index) => {
-                console.log('hi', element)
                 return (
                     <tr key = {index}>
                         <th scope="row">{index}</th>
