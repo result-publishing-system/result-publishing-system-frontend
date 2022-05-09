@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Dashboard from './components/Dashboard'
 import StudentRegister from './components/student/StudentRegister';
 import { Route, Routes } from 'react-router';
+import Profile from './components/student/Profile';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           <Route path='/' element={<basicForm/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/dashboard' element={<Dashboard/>}></Route>
-          <Route path='/student/register' element={<StudentRegister/>}></Route>
+          <Route path='/register' element={<StudentRegister/>}></Route>
+          <Route path='/student' element={<Profile/>}></Route>
       </Routes>
     </div> 
   );

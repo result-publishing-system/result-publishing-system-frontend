@@ -12,15 +12,9 @@ export default function Sidebar() {
         <hr/>
         <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item py-2">
-            <Link to="/student/register" className="nav-link active" aria-current="page">
+            <Link to="/register" className="nav-link active" aria-current="page">
             <svg className="bi me-2" width="16" height="16"><use href="#home"></use></svg>
             Create Student
-            </Link>
-        </li>
-        <li className="nav-item py-2">
-            <Link to="/student/register" className="nav-link active" aria-current="page">
-            <svg className="bi me-2" width="16" height="16"><use href="#home"></use></svg>
-            Update Student Record
             </Link>
         </li>
         <li className="nav-item py-2">

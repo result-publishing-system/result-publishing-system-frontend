@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "both": "concurrently \"cd .. && cd Result Publishing System Backend && nodemon index \" \"npm run start\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -14,6 +14,9 @@ function Navbar() {
                     <li className="nav-item">
                         <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link active" aria-current="page" to="/dashboard">Dashboard</Link>
+                    </li>
                 </ul>
                 <form className="d-flex"> 
                     <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>

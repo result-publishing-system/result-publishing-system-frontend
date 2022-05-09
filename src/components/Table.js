@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
 export default function Table() {
     const [students, setStudents] = useState([]);
@@ -34,7 +35,7 @@ export default function Table() {
                 return (
                     <tr key = {index}>
                         <th scope="row">{index}</th>
-                        <td>{element.name.firstName + ' ' + element.name.lastName}</td>
+                        <td><Link to='/student' state={element._id} >{element.name.firstName + ' ' + element.name.lastName}</Link></td>
                         <td>{element.email}</td>
                         <td>{element.phone_no}</td>
                         <td>{element.branch}</td>
